@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "434558973116",
+    "project_id": "dignose-me",
+    "storage_bucket": "dignose-me.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:434558973116:android:9b92fa6c7733104e660cb9",
+        "android_client_info": {
+          "package_name": "com.example.diagnose_me"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "434558973116-oqidujq224g4obaksq7hovbtfa70aj3r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFAX-LPevId_x1BO70e5KzzyiunRAxg3s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "434558973116-oqidujq224g4obaksq7hovbtfa70aj3r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:434558973116:android:a64deff6f6c0a6cf660cb9",
+        "android_client_info": {
+          "package_name": "com.example.self_diagnose"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "434558973116-oqidujq224g4obaksq7hovbtfa70aj3r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFAX-LPevId_x1BO70e5KzzyiunRAxg3s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "434558973116-oqidujq224g4obaksq7hovbtfa70aj3r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

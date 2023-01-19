@@ -1,22 +1,8 @@
-import 'dart:async';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:self_diagnose/components/ProgressDialog.dart';
 import 'package:self_diagnose/components/core/themes/AppColors.dart';
-import 'package:self_diagnose/screens/Home/homePage.dart';
-import 'package:self_diagnose/screens/resetPassword.dart';
-import 'package:self_diagnose/screens/signupPage.dart';
-
-import '../components/core/util/Constant.dart';
-
-class LoginPage extends StatefulWidget {
-  @override
-  _LoginPageState createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
-  late String _email, _password = "";
+import 'package:self_diagnose/screens/signupPage _password = "";
   final auth = FirebaseAuth.instance;
 
   // final _formKey = GlobalKey<FormState>();
@@ -167,63 +153,63 @@ class _LoginPageState extends State<LoginPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Constant.buttonPreview(
-                            child: new Text(
-                              "Forget Password?",
-                              style: TextStyle(
-                                  color: AppColors.primary,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ResetScreen()),
-                              );
-                            },
-                          ),
+                          // Constant.buttonPreview(
+                          //   child: new Text(
+                          //     "Forget Password?",
+                          //     style: TextStyle(
+                          //         color: AppColors.primary,
+                          //         fontSize: 14,
+                          //         fontWeight: FontWeight.bold),
+                          //   ),
+                          //   onPressed: () {
+                          //     Navigator.push(
+                          //       context,
+                          //       MaterialPageRoute(
+                          //           builder: (context) => ResetScreen()),
+                          //     );
+                          //   },
+                          // ),
                         ],
                       ),
                       SizedBox(
                         height: 20,
                       ),
-                      Container(
-                        height: 50,
-                        width: double.infinity,
-                        margin: EdgeInsets.only(left: 40, right: 40),
-                        child: Constant.buttonPreview(
-                          onPressed: () {
-                            showLoading(context);
-                            // if(_formKey.currentState.validate()){
-                            // _formKey.currentState.save();
-                            Timer timerM = new Timer.periodic(
-                                new Duration(seconds: 5), (time) {
-                              // toastMessage("Username: $_username\nEmail: $_email\nPassword: $_password");
-                              auth
-                                  .signInWithEmailAndPassword(
-                                      email: _email, password: _password)
-                                  .then((_) {
-                                Navigator.of(context).pushReplacement(
-                                    MaterialPageRoute(
-                                        builder: (context) => HomeScreen()));
-                                time.cancel();
-                              });
-                            });
-                          },
-                          background: AppColors.primary,
-                          // shape: RoundedRectangleBorder(
-                          //   borderRadius: BorderRadius.circular(30),
-                          // ),
-                          child: Text(
-                            "SIGN IN",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16),
-                          ),
-                        ),
-                      ),
+                      // Container(
+                      //   height: 50,
+                      //   width: double.infinity,
+                      //   margin: EdgeInsets.only(left: 40, right: 40),
+                      //   child: Constant.buttonPreview(
+                      //     onPressed: () {
+                      //       showLoading(context);
+                      //       // if(_formKey.currentState.validate()){
+                      //       // _formKey.currentState.save();
+                      //       Timer timerM = new Timer.periodic(
+                      //           new Duration(seconds: 5), (time) {
+                      //         // toastMessage("Username: $_username\nEmail: $_email\nPassword: $_password");
+                      //         auth
+                      //             .signInWithEmailAndPassword(
+                      //                 email: _email, password: _password)
+                      //             .then((_) {
+                      //           Navigator.of(context).pushReplacement(
+                      //               MaterialPageRoute(
+                      //                   builder: (context) => HomeScreen()));
+                      //           time.cancel();
+                      //         });
+                      //       });
+                      //     },
+                      //     background: AppColors.primary,
+                      //     // shape: RoundedRectangleBorder(
+                      //     //   borderRadius: BorderRadius.circular(30),
+                      //     // ),
+                      //     child: Text(
+                      //       "SIGN IN",
+                      //       style: TextStyle(
+                      //           color: Colors.white,
+                      //           fontWeight: FontWeight.bold,
+                      //           fontSize: 16),
+                      //     ),
+                      //   ),
+                      // ),
                       SizedBox(
                         height: 16,
                       ),

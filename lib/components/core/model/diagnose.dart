@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class AILMENT {
-  int id;
-  String ailmentName;
-  String prevention;
-  String dosage;
-  String causeName;
-  String treatment;
+  int? id;
+  String? ailmentName;
+  String? prevention;
+  String? dosage;
+  String? causeName;
+  String? treatment;
 
   AILMENT(
       {this.id,
@@ -18,26 +18,26 @@ class AILMENT {
 }
 
 class SYMPTOM {
-  int id;
-  String symptomsName;
-  double weight;
-  int ailmentid;
+  int? id;
+  String? symptomsName;
+  double? weight;
+  int? ailmentid;
 
   SYMPTOM({this.id, this.symptomsName, this.weight, this.ailmentid});
 }
 
 class Answer {
-  int symptomId;
-  int ailmentId;
-  bool answer;
-  double weight;
-  String question;
+  int? symptomId;
+  int? ailmentId;
+  bool? answer;
+  double? weight;
+  String? question;
   Answer(
       {this.symptomId,
       this.ailmentId,
       this.answer,
       this.weight,
-      @required this.question});
+      required this.question});
 }
 
 List<AILMENT> ailmentItems = [

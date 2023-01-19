@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:self_diagnose/components/core/themes/AppColors.dart';
 
 class DialogLoading extends StatefulWidget {
-  final BuildContext context;
-  final Widget subtitle;
-  final Duration duration;
+  final BuildContext? context;
+  final Widget? subtitle;
+  final Duration? duration;
 
   DialogLoading({this.subtitle, this.context, this.duration});
 
@@ -15,7 +15,7 @@ class DialogLoading extends StatefulWidget {
 
 class _DialogLoadingState extends State<DialogLoading>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -35,8 +35,8 @@ class _DialogLoadingState extends State<DialogLoading>
   Widget build12(BuildContext context) {
     if (widget.duration != null && this.widget.context != null) {
       // we use the parent context to close the dialog
-      Timer(widget.duration, () {
-        Navigator.of(this.widget.context, rootNavigator: true).pop();
+      Timer(widget.duration!, () {
+        Navigator.of(this.widget.context!, rootNavigator: true).pop();
       });
     }
 
@@ -66,8 +66,8 @@ class _DialogLoadingState extends State<DialogLoading>
   Widget build(BuildContext context) {
     if (widget.duration != null && this.widget.context != null) {
       // we use the parent context to close the dialog
-      Timer(widget.duration, () {
-        Navigator.of(this.widget.context, rootNavigator: true).pop();
+      Timer(widget.duration!, () {
+        Navigator.of(this.widget.context!, rootNavigator: true).pop();
       });
     }
 

@@ -22,7 +22,7 @@ class _BackgroundViewState extends State<BackgroundView> {
 }
 
 class BgScreen extends StatelessWidget {
-  final String imageString;
+  final String? imageString;
 
   BgScreen({this.imageString});
 
@@ -33,7 +33,7 @@ class BgScreen extends StatelessWidget {
       //width: double.infinity,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(imageString), // ;imageDirectory[0]),
+          image: AssetImage(imageString!), // ;imageDirectory[0]),
           fit: BoxFit.fill,
         ),
       ),

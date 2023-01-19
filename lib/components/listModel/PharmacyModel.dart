@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class UiMenuModel {
-  String title;
+  String? title;
   // AssetImage icon;
-  String subtitle;
+  String? subtitle;
   // Color itemColor;
 
   UiMenuModel({this.title,  this.subtitle, });

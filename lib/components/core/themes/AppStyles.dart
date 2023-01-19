@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'AppColors.dart';
 
 class AppStyles {
@@ -6,7 +7,7 @@ class AppStyles {
     return AppStyles();
   }
 
-  static DecorationImage backgroundDecorationImage({String imagePath}) {
+  static DecorationImage backgroundDecorationImage({String? imagePath}) {
     return DecorationImage(
       colorFilter:
           ColorFilter.mode(Colors.white.withOpacity(0.4), BlendMode.dstATop),
@@ -18,25 +19,25 @@ class AppStyles {
   }
 
   static TextStyle boldText(BuildContext context) {
-    return Theme.of(context).textTheme.body1.copyWith(
+    return Theme.of(context).textTheme.bodyText1!.copyWith(
           fontWeight: FontWeight.bold,
         );
   }
 
   static TextStyle semiBoldText(BuildContext context) {
-    return Theme.of(context).textTheme.body1.copyWith(
+    return Theme.of(context).textTheme.bodyText1!.copyWith(
           fontWeight: FontWeight.w600,
         );
   }
 
   static TextStyle textTitle(BuildContext context) {
-    return Theme.of(context).textTheme.title.copyWith(
+    return Theme.of(context).textTheme.titleSmall!.copyWith(
           fontWeight: FontWeight.w600,
         );
   }
 
   static TextStyle onBoardingTitle(BuildContext context) {
-    return Theme.of(context).textTheme.headline.copyWith(
+    return Theme.of(context).textTheme.headline1!.copyWith(
           fontWeight: FontWeight.w600,
         );
   }
@@ -58,11 +59,11 @@ class AppStyles {
   }
 
   static TextStyle commonTextStyle(
-      {BuildContext context,
-      bool boldOrNormal,
-      double fontSize,
-      Color fontColor}) {
-    return Theme.of(context).textTheme.body1.copyWith(
+      {required BuildContext context,
+      required bool boldOrNormal,
+      double? fontSize,
+      Color? fontColor}) {
+    return Theme.of(context).textTheme.bodyText1!.copyWith(
           fontWeight: boldOrNormal ? FontWeight.normal : FontWeight.bold,
           fontFamily: 'Source Sans Pro',
           fontSize: fontSize,
@@ -71,7 +72,7 @@ class AppStyles {
   }
 
   static TextStyle bottomText(BuildContext context, bool isActive) {
-    return Theme.of(context).textTheme.body1.copyWith(
+    return Theme.of(context).textTheme.bodyText1!.copyWith(
           fontWeight: FontWeight.normal,
           fontFamily: 'Source Sans Pro',
           fontSize: 12,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:self_diagnose/components/core/themes/AppColors.dart';
+
+import '../util/Constant.dart';
 
 class DialogLogOut extends StatelessWidget {
   DialogLogOut();
@@ -39,17 +40,17 @@ class DialogLogOut extends StatelessWidget {
             Row(
               children: [
                 Expanded(
-                  child: OutlineButton(
+                  child: Constant.buttonPreview(
                     onPressed: () {
                       Navigator.of(context, rootNavigator: true).pop();
                     },
-                    borderSide: BorderSide(color: AppColors.primary),
+                    //borderSide: BorderSide(color: AppColors.primary),
                     child: Text("Cancel"),
                   ),
                 ),
                 SizedBox(width: 20.0),
                 Expanded(
-                  child: RaisedButton(
+                  child: Constant.buttonPreview(
                     onPressed: () {
                       Navigator.of(context, rootNavigator: true).pop();
                     },

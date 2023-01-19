@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 
 class DialogLoading extends StatelessWidget {
 
-  final BuildContext context;
-  final Widget subtitle;
-  final Duration duration;
-  Animation<Color> colorTween;
+  final BuildContext? context;
+  final Widget? subtitle;
+  final Duration? duration;
+  Animation<Color>? colorTween;
 
   DialogLoading({this.subtitle, this.context, this.duration});
 
@@ -16,8 +16,8 @@ class DialogLoading extends StatelessWidget {
    // colorTween = controller.drive(new ColorTween(begin: Colors.greenAccent, end: Colors.deepOrange));
     if (duration != null && this.context != null) {
       // we use the parent context to close the dialog
-      Timer(duration, () {
-        Navigator.of(this.context, rootNavigator: true).pop();
+      Timer(duration!, () {
+        Navigator.of(this.context!, rootNavigator: true).pop();
       });
 
     }

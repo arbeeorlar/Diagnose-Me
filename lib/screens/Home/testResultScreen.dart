@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:self_diagnose/components/core/model/diagnose.dart';
 import 'package:self_diagnose/components/core/themes/AppColors.dart';
 
+import '../../components/core/util/Constant.dart';
+
 class TestResultScreen extends StatefulWidget {
-  List<Answer> response;
+  List<Answer>? response;
   TestResultScreen({this.response});
 
   @override
@@ -14,7 +16,7 @@ class TestResultScreen extends StatefulWidget {
 class _TestResultScreenState extends State<TestResultScreen> {
   @override
   Widget build(BuildContext context) {
-    int id = widget.response.first.ailmentId;
+    int? id = widget.response!.first.ailmentId;
     AILMENT ailment = ailmentItems.where((element) => element.id == id).single;
     return Container(
       width: double.infinity,
@@ -112,7 +114,7 @@ class _TestResultScreenState extends State<TestResultScreen> {
     );
   }
 
-  Widget keyValueLabel(String key, String value) {
+  Widget keyValueLabel(String? key, String value) {
     return Container(
       alignment: Alignment.center,
       child: Row(
@@ -178,14 +180,14 @@ class _TestResultScreenState extends State<TestResultScreen> {
             SizedBox(
               height: 10,
             ),
-            for (var t in widget.response)
+            for (var t in widget.response!)
               Column(
                 children: [
                   Container(
                       margin: EdgeInsets.only(top: 10, bottom: 10),
                       height: 20,
                       child:
-                      keyValueLabel(t.question, t.answer ? "YES" : "NO")),
+                          keyValueLabel(t.question, t.answer! ? "YES" : "NO")),
                 ],
               ),
             SizedBox(
@@ -350,19 +352,19 @@ class _TestResultScreenState extends State<TestResultScreen> {
   }
 
   Future showInfoDialog(
-      BuildContext context, {
-        bool barrierDismissible = true,
-        String title,
-        String message,
-        String buttonText = "CLOSE",
-      }) {
+    BuildContext context, {
+    bool barrierDismissible = true,
+    String? title,
+    String? message,
+    String buttonText = "CLOSE",
+  }) {
     return showDialog(
       context: context,
       barrierDismissible: barrierDismissible,
       builder: (context) {
         return AlertDialog(
           shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           title: Row(
             children: [
               Expanded(
@@ -381,7 +383,7 @@ class _TestResultScreenState extends State<TestResultScreen> {
             textAlign: TextAlign.center,
           ),
           actions: <Widget>[
-            FlatButton(
+            Constant.buttonPreview(
               onPressed: () {
                 Navigator.of(context, rootNavigator: true).pop();
               },
@@ -435,7 +437,7 @@ class _TestResultScreenState extends State<TestResultScreen> {
   }
 
   getAilmentById() {
-    int id = widget.response.first.ailmentId;
+    int? id = widget.response!.first.ailmentId;
     AILMENT ailment = ailmentItems.where((element) => element.id == id).single;
     return ailment;
   }

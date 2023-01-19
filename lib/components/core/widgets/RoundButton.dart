@@ -10,30 +10,30 @@ class RoundButton extends StatelessWidget {
   double width;
   double buttonHeight;
   EdgeInsetsGeometry margin;
-  EdgeInsetsGeometry padding;
+  EdgeInsetsGeometry? padding;
   double  elevation ;
   FontWeight textFontWeight;
   Color textColor;
   double textSize;
   Function onClick;
-  Function onLongPress;
-  Color  textBackColor;
+  Function? onLongPress;
+  Color?  textBackColor;
 
   
 
   RoundButton(
-      {@required this.text,
-      @required this.backgroundColor,
-      @required this.radius, 
-      @required this.width,
-      @required this.buttonHeight,
-      @required this.margin,
-      @required this.alignment,
-      @required this.elevation,
-      @required this.textFontWeight,
-      @required this.textColor,
-      @required this.textSize, 
-      @required  this.onClick,
+      {required this.text,
+      required this.backgroundColor,
+      required this.radius, 
+      required this.width,
+      required this.buttonHeight,
+      required this.margin,
+      required this.alignment,
+      required this.elevation,
+      required this.textFontWeight,
+      required this.textColor,
+      required this.textSize, 
+      required  this.onClick,
       this.padding,
       });
 
@@ -51,7 +51,7 @@ class RoundButton extends StatelessWidget {
           child: MaterialButton(
             minWidth: width,
             height: buttonHeight,
-            onPressed: onClick,
+            onPressed: onClick as void Function()?,
             child: Text(
               
               text,

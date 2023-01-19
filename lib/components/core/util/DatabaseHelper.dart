@@ -9,11 +9,11 @@ class DBProvider {
 
   static final DBProvider db = DBProvider._();
 
-  Database _database;
+  Database? _database;
   int dbVersion =
       6; //change the version,when you make changes to the  database before push
 
-  Future<Database> get database async {
+  Future<Database?> get database async {
     if (_database != null) return _database;
     // if _database is null we instantiate it
     _database = await initDB();

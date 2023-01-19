@@ -1,22 +1,21 @@
-
 import 'package:flutter/material.dart';
 import 'package:self_diagnose/components/core/themes/AppColors.dart';
 import 'package:self_diagnose/components/core/themes/AppStyles.dart';
 
+import '../util/Constant.dart';
 import 'DialogLoading.dart';
 import 'SuccessDialog.dart';
 import 'progressindicator.dart';
 //import 'package:workmanager/workmanager.dart';
 
 class GeneralWidgets {
-
   void showError(BuildContext context,
       {bool barrierDismissible = true,
-      String title,
-      String message,
+      String? title,
+      String? message,
       String buttonText = "CLOSE",
-      VoidCallback onButtonTapped,
-      VoidCallback errorInfoTapped}) {
+      VoidCallback? onButtonTapped,
+      VoidCallback? errorInfoTapped}) {
     showDialog(
       context: context,
       barrierDismissible: barrierDismissible,
@@ -42,13 +41,13 @@ class GeneralWidgets {
             textAlign: TextAlign.center,
           ),
           actions: <Widget>[
-            FlatButton(
-              onPressed: () {
-                if (onButtonTapped != null) onButtonTapped();
-                Navigator.of(context, rootNavigator: true).pop();
-              },
-              child: Text(buttonText),
-            ),
+            Constant.buttonPreview(
+                onPressed: () {
+                  if (onButtonTapped != null) onButtonTapped();
+                  Navigator.of(context, rootNavigator: true).pop();
+                },
+                child: Text(buttonText),
+                background: AppColors.primary),
           ],
         );
       },
@@ -56,10 +55,10 @@ class GeneralWidgets {
   }
 
   void showConfirmDialog(BuildContext context,
-      {String title,
-      String message,
+      {String? title,
+      String? message,
       String positiveText = "Confirm",
-      VoidCallback onPositiveTapped}) {
+      VoidCallback? onPositiveTapped}) {
     showDialog(
       context: context,
       builder: (context) {
@@ -83,7 +82,7 @@ class GeneralWidgets {
           ),
           actions: <Widget>[
             Expanded(
-              child: FlatButton(
+              child: Constant.buttonPreview(
                 onPressed: () {
                   Navigator.of(context, rootNavigator: true).pop();
                 },
@@ -91,9 +90,9 @@ class GeneralWidgets {
               ),
             ),
             Expanded(
-              child: FlatButton(
+              child: Constant.buttonPreview(
                 onPressed: () {
-                  onPositiveTapped();
+                  onPositiveTapped!();
                 },
                 child: Text(positiveText),
               ),
@@ -104,11 +103,9 @@ class GeneralWidgets {
     );
   }
 
-  showSnackBar(GlobalKey<ScaffoldState> scaffoldKey, {String message}) {
-    scaffoldKey.currentState.showSnackBar(SnackBar(
-      content: Text(message ?? ""),
-      backgroundColor: Colors.orange,
-    ));
+  showSnackBar(GlobalKey<ScaffoldState> scaffoldKey, {String? message}) {
+    ScaffoldMessenger.of(scaffoldKey.currentContext!).showSnackBar(
+        SnackBar(content: Text(message ?? ""), backgroundColor: Colors.orange));
   }
 
 //  logout(BuildContext context) async {
@@ -119,7 +116,7 @@ class GeneralWidgets {
 //        Route<dynamic> route) => false);
 //  }
 //
-  showSuccessDialog1(BuildContext context, String message, {Function onClick}) {
+  showSuccessDialog1(BuildContext context, String message, {Function? onClick}) {
     SuccessDialog.show(
       context,
       successDialogContent(context, message, onClick),
@@ -128,7 +125,7 @@ class GeneralWidgets {
   }
 
   Widget successDialogContent(
-      BuildContext context, String message, Function onClick) {
+      BuildContext context, String message, Function? onClick) {
     return Container(
       height: 200,
       padding: EdgeInsets.only(top: 20),
@@ -161,9 +158,8 @@ class GeneralWidgets {
             width: double.infinity,
             height: 38,
             margin: EdgeInsets.only(top: 30, bottom: 20, left: 30, right: 30),
-            child: RaisedButton(
-              elevation: 0,
-              onPressed: onClick ??
+            child: Constant.buttonPreview(
+              onPressed: onClick as dynamic Function()? ??
                   () {
                     Navigator.of(context, rootNavigator: true).pop();
                   },
@@ -184,7 +180,7 @@ class GeneralWidgets {
   }
 
   // TODO (Lekan): We need a better way to display loading widget & states
-  void showLoading(BuildContext context, {bool close = false, String message}) {
+  void showLoading(BuildContext context, {bool close = false, String? message}) {
     if (close) {
       Navigator.of(context, rootNavigator: true).pop();
     } else {

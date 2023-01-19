@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:self_diagnose/components/core/themes/AppColors.dart';
 
 class BaseAppBar extends StatefulWidget implements PreferredSizeWidget {
-  BaseAppBar({Key key})
+  BaseAppBar({Key? key})
       : preferredSize = Size.fromHeight(kToolbarHeight),
         super(key: key);
 
@@ -53,7 +53,7 @@ class _BaseAppBarState extends State<BaseAppBar> {
 }
 
 class PopAppBar extends StatefulWidget implements PreferredSizeWidget {
-  PopAppBar({Key key})
+  PopAppBar({Key? key})
       : preferredSize = Size.fromHeight(kToolbarHeight),
         super(key: key);
 
@@ -86,7 +86,7 @@ class _PopAppBarState extends State<PopAppBar> {
 
 class BaseAppBarWithoutBackButton extends StatefulWidget
     implements PreferredSizeWidget {
-  BaseAppBarWithoutBackButton({Key key})
+  BaseAppBarWithoutBackButton({Key? key})
       : preferredSize = Size.fromHeight(kToolbarHeight),
         super(key: key);
 
@@ -115,9 +115,11 @@ class _BaseAppBarWithoutBackButtonState
             child: Transform.scale(
               scale: 1,
               child: IconButton(
-                  icon: Image.asset(
-                "images/R2.png",
-              )),
+                icon: Image.asset(
+                  "images/R2.png",
+                ),
+                onPressed: () {},
+              ),
             ),
           ),
         ],
@@ -127,7 +129,7 @@ class _BaseAppBarWithoutBackButtonState
 }
 
 class AppBarWidget extends StatefulWidget implements PreferredSizeWidget {
-  AppBarWidget({Key key})
+  AppBarWidget({Key? key})
       : preferredSize = Size.fromHeight(kToolbarHeight),
         super(key: key);
 
@@ -171,7 +173,7 @@ class _AppBarState extends State<AppBarWidget> {
 }
 
 class DashboardAppWidget extends StatefulWidget implements PreferredSizeWidget {
-  DashboardAppWidget({Key key})
+  DashboardAppWidget({Key? key})
       : preferredSize = Size.fromHeight(kToolbarHeight),
         super(key: key);
 

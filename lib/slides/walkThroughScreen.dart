@@ -283,7 +283,7 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
 
   Widget pageViewDots(
       BuildContext context, bool dotCount1, bool dotCount2, bool dotCount3,
-      {int activeIndex, Function onClick}) {
+      {int? activeIndex, Function? onClick}) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 25),
       child: Row(
@@ -308,7 +308,7 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
           ]),
           dotCount3
               ? InkWell(
-            onTap: onClick,
+            onTap: onClick as void Function()?,
             child: Container(
               child: Text("Continue",
                   style: TextStyle(
@@ -318,7 +318,7 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
             ),
           )
               : InkWell(
-            onTap: onClick,
+            onTap: onClick as void Function()?,
             child: Container(
               child: Text("Skip",
                   style: TextStyle(

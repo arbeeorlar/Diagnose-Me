@@ -2,18 +2,22 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:self_diagnose/components/core/themes/AppColors.dart';
 
+import '../components/core/util/Constant.dart';
+
 class ResetScreen extends StatefulWidget {
   @override
   _ResetScreenState createState() => _ResetScreenState();
 }
 
 class _ResetScreenState extends State<ResetScreen> {
-  String _email;
+  late String _email;
   final auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Reset Password'),),
+      appBar: AppBar(
+        title: Text('Reset Password'),
+      ),
       backgroundColor: Colors.blueGrey,
       body: Column(
         children: [
@@ -47,19 +51,18 @@ class _ResetScreenState extends State<ResetScreen> {
           SizedBox(
             height: 25,
           ),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              FlatButton(
+              Constant.buttonPreview(
                 onPressed: () {
                   auth.sendPasswordResetEmail(email: _email);
                   Navigator.of(context).pop();
                 },
-                color: AppColors.primary,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
+                background: AppColors.primary,
+                // shape: RoundedRectangleBorder(
+                //   borderRadius: BorderRadius.circular(30),
+                // ),
                 child: Text(
                   "Send Request",
                   style: TextStyle(
@@ -68,11 +71,10 @@ class _ResetScreenState extends State<ResetScreen> {
                       fontSize: 16),
                 ),
               ),
-
-            ],),
+            ],
+          ),
         ],
       ),
     );
   }
 }
-

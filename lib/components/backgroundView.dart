@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class backgroundView extends StatefulWidget {
-  String backgroundImages;
+  String? backgroundImages;
 
   backgroundView({this.backgroundImages});
 
@@ -11,7 +11,7 @@ class backgroundView extends StatefulWidget {
 }
 
 class _backgroundViewState extends State<backgroundView> {
-  final String backgroundImages;
+  final String? backgroundImages;
 
   _backgroundViewState({this.backgroundImages});
 
@@ -24,7 +24,7 @@ class _backgroundViewState extends State<backgroundView> {
       //width: double.infinity,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(backgroundImages), // ;imageDirectory[0]),
+          image: AssetImage(backgroundImages!), // ;imageDirectory[0]),
           fit: BoxFit.fill,
         ),
       ),
